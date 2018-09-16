@@ -1,0 +1,61 @@
+<div class="sc" *ngFor="let item of postData">
+	<div class="sc__header d-flex margin-bottom">
+		<div class="sc__header__avatar">
+			<img src="{{ item.avatar }}" alt="">
+		</div>
+		<div class="sc__header__author-name d-flex align-items-center">
+			{{ item.author }}
+			<div class="sc__header__options d-flex" (click)="optionBoxChange()">
+				<span class="rounded-circle"></span>
+				<span class="rounded-circle"></span>
+				<span class="rounded-circle"></span>
+			</div>
+			<div class="sc__header__options-box" [ngStyle]="{ display: optionBox == true ? 'block' : 'none' }">
+				<span ngxClipboard [cbContent]="postLink">Get Post Link</span>
+			</div>
+		</div>
+	</div>
+	<div class="sc__body">
+		<div class="sc__body__content" [ngStyle]="{ height: readMore == true ? 'auto' : '75px' }">
+			<p>{{ item.content }}</p>
+		</div>
+		<span class="sc__body__read-more" (click)="readMoreChange()">
+			<p *ngIf="!readMore">Read More</p>
+			<p *ngIf="readMore">Hidden</p>
+		</span>
+		<div class="sc__body__thumbnail">
+			<img src="{{ item.thumbnail }}" alt="">
+		</div>
+		<div class="sc__body__meta margin-bottom d-flex justify-content-between">
+			<span class="sc__body__meta__title">{{ item.title }}</span>
+			<span class="sc__body__meta__likes_count">
+				{{ likeCount }}
+				<div *ngIf="likeCount != 1">Likes</div>
+				<div *ngIf="likeCount == 1">Like</div>
+			</span>
+		</div>
+		<div class="sc__body__comment">
+			<div
+				class="sc__body__comment__content d-flex align-items-center margin-bottom"
+				*ngFor="let comment of commentData"
+			>
+				<img src="{{ comment.avatar }}" alt="">
+				<div class="sc__body__comment__content__text">
+					<span>{{ comment.author }}</span>
+					<p>{{ comment.content }}</p>
+				</div>
+			</div>
+			<div class="sc__body__comment__input margin-bottom" *ngIf="comment">
+				<textarea [(ngModel)]="newComment"></textarea>
+				<button class="btn btn-info" (click)="addNewComment()">Add Comment</button>
+			</div>
+		</div>
+	</div>
+	<div class="sc__footer d-flex justify-content-between">
+		<span
+			(click)="setLikeCount( item, like == true ? item.likeCount - 1 : item.likeCount + 1 )"
+			[ngStyle]="{ color: like == true ? '#fad4c6' : '#93a5a7' }"
+		>Like<img src="./assets/images/hand-gesture.png" alt="like"></span>
+		<span (click)="commentChange()">Comment<img src="./assets/images/chat.png" alt="comment"></span>
+	</div>
+</div>

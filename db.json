@@ -1,0 +1,27 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "author": "Jon Don",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
+      "title": "Post title",
+      "likeCount": 11,
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "thumbnail": "https://beinspiredchannel.com/wp-content/uploads/2017/05/MOTIVATE-YOURSELF-AND-STAY-MOTIVATED.jpg"
+    }
+  ],
+  "comment": [
+    {
+      "id": 1,
+      "author": "Jon Don",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "author": "Jon Don",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
+      "content": "daf",
+      "id": 2
+    }
+  ]
+}
