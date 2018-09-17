@@ -10,7 +10,11 @@
 				<span class="rounded-circle"></span>
 				<span class="rounded-circle"></span>
 			</div>
-			<div class="sc__header__options-box" [ngStyle]="{ display: optionBox == true ? 'block' : 'none' }">
+			<!--Show block if property value is true-->
+			<div
+				class="sc__header__options-box"
+				[ngStyle]="{ display: optionBox == true ? 'block' : 'none' }"
+			>
 				<span ngxClipboard [cbContent]="postLink">Get Post Link</span>
 			</div>
 		</div>
@@ -35,6 +39,7 @@
 			</span>
 		</div>
 		<div class="sc__body__comment">
+			<!--Load each comment from db.json-->
 			<div
 				class="sc__body__comment__content d-flex align-items-center margin-bottom"
 				*ngFor="let comment of commentData"
@@ -46,16 +51,19 @@
 				</div>
 			</div>
 			<div class="sc__body__comment__input margin-bottom" *ngIf="comment">
+				<!--Bunding data from textarea-->
 				<textarea [(ngModel)]="newComment"></textarea>
 				<button class="btn btn-info" (click)="addNewComment()">Add Comment</button>
 			</div>
 		</div>
 	</div>
 	<div class="sc__footer d-flex justify-content-between">
+		<!--Set like cout, increment or decrement depends of like property value-->
 		<span
 			(click)="setLikeCount( item, like == true ? item.likeCount - 1 : item.likeCount + 1 )"
 			[ngStyle]="{ color: like == true ? '#fad4c6' : '#93a5a7' }"
-		>Like<img src="./assets/images/hand-gesture.png" alt="like"></span>
-		<span (click)="commentChange()">Comment<img src="./assets/images/chat.png" alt="comment"></span>
+		>Like</span>
+		<!--Hidden or display comment textarea-->
+		<span (click)="commentChange()">Comment</span>
 	</div>
 </div>

@@ -6,22 +6,16 @@
       "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
       "title": "Post title",
       "likeCount": 11,
-      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      "thumbnail": "https://beinspiredchannel.com/wp-content/uploads/2017/05/MOTIVATE-YOURSELF-AND-STAY-MOTIVATED.jpg"
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      "thumbnail": "https://scontent-otp1-1.xx.fbcdn.net/v/t1.15752-9/41900343_267331657243965_8889827410678120448_n.jpg?_nc_cat=0&oh=352cb923657df3b9f45ae4f810cb0175&oe=5C2E7D9D"
     }
   ],
   "comment": [
     {
       "id": 1,
-      "author": "Jon Don",
+      "author": "John Doe",
       "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
-      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    {
-      "author": "Jon Don",
-      "avatar": "https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png",
-      "content": "daf",
-      "id": 2
+      "content": "Contrary to popular beliefLorem Ipsum is simply dummy text of the printing and typesetting industry."
     }
   ]
 }
