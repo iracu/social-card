@@ -18,9 +18,9 @@ export class DataBaseService {
     }
 
     // Add new comment use http post method
-    addComment( content: string ) {
+    addComment( author: string, content: string ) {
         const data = {
-            author: 'John Doe',
+            author: author,
             avatar: 'https://cdn0.iconfinder.com/data/icons/iconshock_guys/512/andrew.png',
             content: content
         };
