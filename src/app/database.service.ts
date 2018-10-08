@@ -29,7 +29,7 @@ export class DataBaseService {
 
     // Update new comment use http put method
     changeLikeCount( post: any, likes: number ) {
-        post.likeCount = likes;
+        post.likeValue = likes;
         return this.http.put( `http://localhost:3333/post/${post.id}`, post );
     }
 }

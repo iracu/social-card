@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataBaseService } from './database.service';
 import { Response } from '@angular/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'sc-root',
@@ -15,11 +16,9 @@ export class AppComponent implements OnInit {
   like = false;
   optionBox = false;
   postLink = window.location.href;
-  likeCount = 0;
+  likeCounts = 0;
   postData;
   commentData;
-  newComment: string = '';
-  commentAuthor: string = '';
 
   // Injection data base serive
   constructor( private dataBase: DataBaseService) {}
@@ -29,8 +28,7 @@ export class AppComponent implements OnInit {
       this.dataBase.getPostData()
           .subscribe((response: Response) => {
               this.postData = response;
-              this.likeCount = response[0].likeCount;
-              console.log(response);
+              this.likeCounts = response[0].likeValue;
           });
       // Get comment data on app init
       this.dataBase.getCommentData()
@@ -40,10 +38,11 @@ export class AppComponent implements OnInit {
   }
 
   // Add new comment method
-  addNewComment() {
-      this.dataBase.addComment( this.commentAuthor, this.newComment )
-          .subscribe((comment: CommentData) => {
+  addNewComment( commentForm: NgForm ) {
+      this.dataBase.addComment( commentForm.value.commentAuthor, commentForm.value.commentContent )
+          .subscribe( ( comment ) => {
               this.commentData.push(comment);
+              commentForm.reset();
           });
   }
 
@@ -52,7 +51,7 @@ export class AppComponent implements OnInit {
       this.like = !this.like;
       this.dataBase.changeLikeCount( post, likeCount )
           .subscribe( (data) => {
-              this.likeCount = data.likeCount;
+              this.likeCounts = data.likeValue;
           });
   }
 

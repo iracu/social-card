@@ -37,9 +37,9 @@
 		<div class="sc__body__meta margin-bottom d-flex justify-content-between">
 			<span class="sc__body__meta__title">{{ item.title }}</span>
 			<span class="sc__body__meta__likes_count">
-				{{ likeCount }}
-				<div *ngIf="likeCount != 1 || likeCount != 0">Likes</div>
-				<div *ngIf="likeCount == 1 || likeCount == 0">Like</div>
+				{{ likeCounts }}
+				<div *ngIf="likeCounts != 1">Likes</div>
+				<div *ngIf="likeCounts == 1">Like</div>
 			</span>
 		</div>
 		<div class="sc__body__comment">
@@ -56,16 +56,43 @@
 			</div>
 			<div class="sc__body__comment__input margin-bottom" *ngIf="comment">
 				<!--Bunding data from textarea-->
-				<textarea placeholder="Your comment" [(ngModel)]="newComment"></textarea>
-				<input type="text" placeholder="Your name..." [(ngModel)]="commentAuthor">
-				<button class="btn btn-info" (click)="addNewComment()">Add Comment</button>
+				<form (ngSubmit)="addNewComment(commentForm)" #commentForm="ngForm">
+					<textarea
+						placeholder="Your comment"
+					    name="commentContent"
+						required
+						ngModel
+					    #commentContent="ngModel"
+					></textarea>
+					<input
+						type="text"
+						placeholder="Your name..."
+						name="commentAuthor"
+						required
+						ngModel
+					    #commentAuthor="ngModel"
+					>
+					<button
+						class="btn btn-info"
+						type="submit"
+						[disabled]="!commentForm.valid"
+					>Add Comment</button>
+					<p
+						*ngIf="commentContent.invalid && commentContent.touched"
+						style="color: #FF885F; margin-top: 10px"
+					>Set your comment!</p>
+					<p
+						*ngIf="commentAuthor.invalid && commentAuthor.touched"
+						style="color: #FF885F"
+					>Set your name!</p>
+				</form>
 			</div>
 		</div>
 	</div>
 	<div class="sc__footer d-flex justify-content-between">
 		<!--Set like cout, increment or decrement depends of like property value-->
 		<span
-			(click)="setLikeCount( item, like == true ? item.likeCount - 1 : item.likeCount + 1 )"
+			(click)="setLikeCount( item, like == true ? item.likeValue - 1 : item.likeValue + 1 )"
 			[ngStyle]="{ color: like == true ? '#17bbe3' : '#93a5a7' }"
 		>Like<img src="assets/images/like.png" alt="like"></span>
 		<!--Hidden or display comment textarea-->
