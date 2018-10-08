@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
               this.commentData = response;
           });
   }
-
+  
   // Add new comment method
   addNewComment( commentForm: NgForm ) {
       this.dataBase.addComment( commentForm.value.commentAuthor, commentForm.value.commentContent )
